@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KosmicMisfits</title>
+
+    <link rel="stylesheet" href="style.Css">
+    <script src="scripts.js" defer></script>
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <section class="left_header">
+
+            <a href="Home.html" class="logo" aria-label="KosmicMisfits home"></a>
+
+            <h1 class="logoname">KosmicMisfits</h1>
+
+        </section>
+
+        <section class="right_header">
+
+            <!-- Mint Button -->
+            <button
+                id="mintButton"
+                type="button"
+                onclick="mintDisplay()"
+                aria-label="Mint"
+                aria-controls="mint"
+                aria-expanded="false">
+
+                <span id="mintName">Mint</span>
+
+                <span class="close close-one"></span>
+                <span class="close close-two"></span>
+
+            </button>
+
+            <!-- Hamburger Menu Button -->
+            <button
+                id="menuButton"
+                type="button"
+                onclick="toggleMenu()"
+                aria-label="Toggle navigation menu"
+                aria-controls="menu"
+                aria-expanded="false">
+
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+
+            </button>
+
+        </section>
+
+    </header>
+
+    <nav aria-label="Main navigation">
+        <ul id="menu">
+            <!-- Add navigation links here -->
+        </ul>
+    </nav>
+
+    <!-- Mint information panel -->
+    <section id="mint" hidden>
+        <!-- Add mint information here -->
+    </section>
+
+</body>
+</html>

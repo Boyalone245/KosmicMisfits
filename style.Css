@@ -1,0 +1,223 @@
+/* Apply consistent sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Page */
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+
+    background-image: url("images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Header */
+.site-header {
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    background-color: rgba(23, 11, 48, 0.8);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Left side: logo and name */
+.left_header {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 50%;
+    min-width: 0;
+}
+
+/* Logo */
+.logo {
+    display: block;
+    flex-shrink: 0;
+    width: 150px;
+    height: 100px;
+
+    background-image: url("images/KosmicMisfits.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Brand name */
+.logoname {
+    margin: 0;
+    padding: 0 0 0 10px;
+
+    font-family: 'Arial Black', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #E8D0FF;
+}
+
+/* Right side: buttons */
+.right_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+}
+
+/* =================================
+   MINT BUTTON
+================================= */
+
+#mintButton {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    width: 100px;
+    height: 50px;
+    padding: 0;
+
+    background-color: #E8D0FF;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Mint text */
+#mintName {
+    color: #170B30;
+    font-size: 18px;
+    font-weight: 600;
+
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* X bars */
+.close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: block;
+    width: 22px;
+    height: 3px;
+
+    background-color: #170B30;
+    border-radius: 3px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+/* First bar: initial state */
+.close-one {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Second bar: initial state */
+.close-two {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Hide Mint text when active */
+#mintButton.active #mintName {
+    opacity: 0;
+}
+
+/* Show and rotate first bar */
+#mintButton.active .close-one {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Show and rotate second bar */
+#mintButton.active .close-two {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* =================================
+   HAMBURGER MENU BUTTON
+================================= */
+
+#menuButton {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+
+    width: 45px;
+    height: 45px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hamburger bars */
+.bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+
+    background-color: #E8D0FF;
+    border-radius: 3px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.2s ease;
+}
+
+/* First bar */
+#menuButton.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+/* Middle bar */
+#menuButton.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+/* Last bar */
+#menuButton.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mint panel */
+#mint {
+    padding: 20px;
+}
+
+/* Prevent hidden panel from displaying */
+#mint[hidden] {
+    display: none;
+}
+
+/* Keyboard focus */
+#mintButton:focus-visible,
+#menuButton:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
