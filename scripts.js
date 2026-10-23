@@ -1,43 +1,34 @@
-// =================================
-// MINT BUTTON
-// =================================
+const loreDisplay = document.getElementById("loreInfo");
+const loreButton = document.getElementById("loreButton");
 
-const mintButton = document.getElementById("mintButton");
-const mintPanel = document.getElementById("mint");
-
-function mintDisplay() {
-    if (!mintButton || !mintPanel) {
-        return;
-    }
-
-    const isOpen = mintButton.classList.toggle("active");
-
-    mintButton.setAttribute("aria-expanded", String(isOpen));
-
-    mintButton.setAttribute(
-        "aria-label",
-        isOpen ? "Close mint information" : "Open mint information"
-    );
-
-    mintPanel.hidden = !isOpen;
-}
-
-
-// =================================
-// HAMBURGER MENU
-// =================================
-
-const menuButton = document.getElementById("menuButton");
-const menu = document.getElementById("menu");
+const menuPanel = document.getElementById("menuPanel");
+const menuButton = document.getElementById("bars");
+const closeMenuButton = document.getElementById("closeMenu");
 
 function toggleMenu() {
-    if (!menuButton || !menu) {
-        return;
+    if (!menuPanel || !menuButton) return;
+
+    const isOpen = menuPanel.classList.toggle("active");
+
+    menuButton.classList.toggle("active", isOpen);
+
+    if (closeMenuButton) {
+        closeMenuButton.classList.toggle("active", isOpen);
     }
 
-    const isOpen = menuButton.classList.toggle("active");
-
-    menu.classList.toggle("active", isOpen);
-
     menuButton.setAttribute("aria-expanded", String(isOpen));
+
+    menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+}
+function infoDisplay() {
+    if (!loreDisplay || !loreButton) return;
+
+    const isOpen = loreDisplay.classList.toggle("active");
+
+    loreButton.classList.toggle("active", isOpen);
+    loreButton.setAttribute("aria-expanded", String(isOpen));
+    loreDisplay.setAttribute("aria-hidden", String(!isOpen));
 }

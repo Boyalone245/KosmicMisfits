@@ -3,72 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>KosmicMisfits</title>
 
-    <link rel="stylesheet" href="style.Css">
+    <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
 </head>
 
 <body>
 
-    <header class="site-header">
+<header class="siteheader">
+    <section class="left-header">
+        <a class="logo" href="Home.html" aria-label="KosmicMisfits home">
+            Kosmic Logo
+        </a>
+        <h1>KosmicMisfits</h1>
+    </section>
 
-        <section class="left_header">
-
-            <a href="Home.html" class="logo" aria-label="KosmicMisfits home"></a>
-
-            <h1 class="logoname">KosmicMisfits</h1>
-
+    <section class="right-header">
+        <section class="mintNav">
+            <button class="mintButton" id="mintPanel" type="button">
+                <span>Mint</span>
+            </button>
         </section>
 
-        <section class="right_header">
-
-            <!-- Mint Button -->
+        <section class="menu">
             <button
-                id="mintButton"
-                type="button"
-                onclick="mintDisplay()"
-                aria-label="Mint"
-                aria-controls="mint"
-                aria-expanded="false">
-
-                <span id="mintName">Mint</span>
-
-                <span class="close close-one"></span>
-                <span class="close close-two"></span>
-
-            </button>
-
-            <!-- Hamburger Menu Button -->
-            <button
-                id="menuButton"
+                class="Menu"
+                id="bars"
                 type="button"
                 onclick="toggleMenu()"
                 aria-label="Toggle navigation menu"
-                aria-controls="menu"
+                aria-controls="menuPanel"
                 aria-expanded="false">
 
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-
             </button>
-
         </section>
-
-    </header>
-
-    <nav aria-label="Main navigation">
-        <ul id="menu">
-            <!-- Add navigation links here -->
-        </ul>
-    </nav>
-
-    <!-- Mint information panel -->
-    <section id="mint" hidden>
-        <!-- Add mint information here -->
     </section>
+</header>
+
+<section class="menupanel" id="menuPanel" aria-label="Main navigation">
+   <button
+    class="Menu active menu-close"
+    id="closeMenu"
+    type="button"
+    onclick="toggleMenu()"
+    aria-label="Close navigation menu">
+
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
+    <h1>This is where the menu list goes</h1>
+
+    <div class="menu-options">
+
+        <button
+            class="nav"
+            id="loreButton"
+            type="button"
+            onclick="infoDisplay()"
+            aria-controls="loreInfo"
+            aria-expanded="false">
+
+            <span class="plus" aria-hidden="true"></span>
+            <span class="plus" aria-hidden="true"></span>
+            <h2 class="menuItems">LORE</h2>
+        </button>
+
+        <button class="nav" id="aboutButton" type="button">
+            <span class="plus" aria-hidden="true"></span>
+            <span class="plus" aria-hidden="true"></span>
+            <h2 class="menuItems">ABOUT</h2>
+        </button>
+
+        <button class="nav" id="contactButton" type="button">
+            <span class="plus" aria-hidden="true"></span>
+            <span class="plus" aria-hidden="true"></span>
+            <h2 class="menuItems">CONTACT</h2>
+        </button>
+
+    </div>
+</section>
+
+<section
+    class="loreInfo"
+    id="loreInfo"
+    aria-label="Project lore"
+    aria-hidden="true">
+    <button
+            class="nav"
+            id="loreButton"
+            type="button"
+            onclick="infoDisplay()"
+            aria-controls="loreInfo"
+            aria-expanded="false">
+
+            <span class="plus" aria-hidden="true"></span>
+            <span class="plus" aria-hidden="true"></span>
+            <h2 class="menuItems">LORE</h2>
+        </button>
+    <h1>This is where the project lore goes into</h1>
+</section>
 
 </body>
 </html>

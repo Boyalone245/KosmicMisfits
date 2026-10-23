@@ -1,223 +1,509 @@
-/* Apply consistent sizing */
 * {
     box-sizing: border-box;
 }
 
-/* Page */
 body {
     margin: 0;
     padding: 0;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    background-color: black;
-
+    min-height: 100vh;
+    position: relative;
+    background-position: center;
     background-image: url("images/background.png");
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* Header */
-.site-header {
-    padding: 20px;
-    display: flex;
-    width: 100%;
-    background-color: rgba(23, 11, 48, 0.8);
-    justify-content: space-between;
-    align-items: center;
-}
+/* HEADER */
 
-/* Left side: logo and name */
-.left_header {
+.siteheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100px;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    width: 50%;
-    min-width: 0;
+    background-color: rgba(23, 11, 48, 0.8);
+    border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
-/* Logo */
+.left-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.left-header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.right-header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+    min-height: 100px;
+    margin: 0;
+    padding: 0;
+}
+
 .logo {
     display: block;
     flex-shrink: 0;
     width: 150px;
     height: 100px;
-
-    background-image: url("images/KosmicMisfits.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-/* Brand name */
-.logoname {
     margin: 0;
-    padding: 0 0 0 10px;
+    padding: 0;
+    background-image: url("images/KosmicMisfits.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
 
-    font-family: 'Arial Black', sans-serif;
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: 1px;
+/* MINT BUTTON */
+
+.mintNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mintButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 40px;
+    margin-left: 50px;
+    padding: 0;
+    border: 1px solid silver;
+    border-radius: 10px;
+    background-color: rgba(192, 192, 192, 0.1);
     color: #E8D0FF;
-}
-
-/* Right side: buttons */
-.right_header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 0;
-}
-
-/* =================================
-   MINT BUTTON
-================================= */
-
-#mintButton {
-    position: relative;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-
-    width: 100px;
-    height: 50px;
-    padding: 0;
-
-    background-color: #E8D0FF;
-    border: none;
-    border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Mint text */
-#mintName {
-    color: #170B30;
-    font-size: 18px;
-    font-weight: 600;
-
-    opacity: 1;
-    transition: opacity 0.3s ease;
+.mintButton:hover {
+    background-color: rgba(192, 192, 192, 0.2);
 }
 
-/* X bars */
-.close {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    display: block;
-    width: 22px;
-    height: 3px;
-
-    background-color: #170B30;
-    border-radius: 3px;
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+.mintButton span {
+    font-family: inherit;
 }
 
-/* First bar: initial state */
-.close-one {
-    transform: translate(-50%, -50%) rotate(0deg);
+/* HAMBURGER BUTTON */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Second bar: initial state */
-.close-two {
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-/* Hide Mint text when active */
-#mintButton.active #mintName {
-    opacity: 0;
-}
-
-/* Show and rotate first bar */
-#mintButton.active .close-one {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-/* Show and rotate second bar */
-#mintButton.active .close-two {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-/* =================================
-   HAMBURGER MENU BUTTON
-================================= */
-
-#menuButton {
-    position: relative;
-
+.Menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 6px;
-
     width: 45px;
     height: 45px;
-    padding: 0;
-
-    background: transparent;
-    border: none;
+    margin-right: 35px;
+    padding: 5px;
+    border: 1px solid rgba(192, 192, 192, 0.2);
+    border-radius: 10px;
+    background-color: rgba(192, 192, 192, 0.1);
     cursor: pointer;
 }
 
-/* Hamburger bars */
 .bar {
     display: block;
+    flex-shrink: 0;
     width: 30px;
     height: 3px;
-
-    background-color: #E8D0FF;
     border-radius: 3px;
-
+    background-color: #E8D0FF;
+    transform-origin: center;
     transition:
         transform 0.3s ease,
-        opacity 0.2s ease;
+        opacity 0.3s ease;
 }
 
-/* First bar */
-#menuButton.active .bar:nth-child(1) {
+#bars.active .bar:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
 
-/* Middle bar */
-#menuButton.active .bar:nth-child(2) {
+#bars.active .bar:nth-child(2) {
     opacity: 0;
 }
 
-/* Last bar */
-#menuButton.active .bar:nth-child(3) {
+#bars.active .bar:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Mint panel */
-#mint {
+/* NAVIGATION MENU PANEL */
+
+.menupanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+
+    position: fixed;
+    top: 15%;
+    right: 3%;
+
+    width: 40%;
+    max-height: 75vh;
+    overflow-y: auto;
     padding: 20px;
+
+    background-color: rgba(23, 11, 48, 0.8);
+    border-radius: 10px;
+    border: 1px solid aliceblue;
+    color: aliceblue;
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(calc(100% + 20px)) translateY(50%);
+
+    transition:
+        transform 0.9s ease,
+        opacity 0.9s ease,
+        visibility 0.9s linear 0.9s;
 }
 
-/* Prevent hidden panel from displaying */
-#mint[hidden] {
-    display: none;
+#menuPanel.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+
+    transition:
+        transform 0.9s ease,
+        opacity 0.9s ease,
+        visibility 0.9s;
 }
 
-/* Keyboard focus */
-#mintButton:focus-visible,
-#menuButton:focus-visible {
-    outline: 2px solid white;
-    outline-offset: 4px;
+.menupanel > h1 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* MENU BUTTON CONTAINER */
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* LORE, ABOUT AND CONTACT BUTTONS */
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+
+    width: 80%;
+    min-height: 50px;
+    margin: 0;
+    padding: 10px 15px;
+
+    background-color: rgba(192, 192, 192, 0.1);
+    border: 1px solid rgba(192, 192, 192, 0.2);
+    border-radius: 10px;
+
+    color: #E8D0FF;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.nav:hover,
+.nav.active {
+    background-color: rgba(192, 192, 192, 0.2);
+    border-color: rgba(232, 208, 255, 0.5);
+}
+
+.menuItems {
+    margin: 0;
+    color: #E8D0FF;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* PLUS ICONS */
+
+.plus {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.plus::before,
+.plus::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 3px;
+    background-color: #E8D0FF;
+    transform: translate(-50%, -50%);
+}
+
+.plus::before {
+    width: 2px;
+    height: 20px;
+}
+
+.plus::after {
+    width: 20px;
+    height: 2px;
+}
+
+/* LORE INFORMATION PANEL */
+
+.loreInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    position: fixed;
+    top: 15%;
+    left: 20%;
+
+    width: 50%;
+    height: 70%;
+    overflow-y: auto;
+    padding: 20px;
+
+    color: azure;
+    border-radius: 10px;
+    border: 1px solid aliceblue;
+    background-color: rgba(23, 11, 48, 0.5);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(75%) translateX(40%);
+
+    transition:
+        transform 0.9s ease,
+        opacity 0.9s ease,
+        visibility 0.9s linear 0.9s;
+}
+
+#loreInfo.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+
+    transition:
+        transform 0.9s ease,
+        opacity 0.9s ease,
+        visibility 0.2s;
+}
+
+.loreInfo h1 {
+    margin-top: 0;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* TABLET */
+
+@media screen and (max-width: 768px) {
+    .left-header {
+        width: 55%;
+    }
+
+    .left-header h1 {
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 90px;
+        height: 85px;
+    }
+
+    .right-header {
+        width: 45%;
+    }
+
+    .Menu {
+        margin-right: 15px;
+    }
+
+    .menupanel {
+        width: 60%;
+    }
+
+    .loreInfo {
+        left: 10%;
+        width: 80%;
+    }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 600px) {
+    .siteheader {
+        min-height: 80px;
+    }
+
+    .left-header {
+        width: 60%;
+    }
+
+    .left-header h1 {
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 70px;
+    }
+
+    .right-header {
+        width: 40%;
+        min-height: 80px;
+    }
+
+    .mintButton {
+        width: 60px;
+        height: 35px;
+        margin-left: 0;
+    }
+
+    .Menu {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .bar {
+        width: 25px;
+    }
+
+    .menupanel {
+        top: 12%;
+        right: 3%;
+        width: 75%;
+        max-height: 80vh;
+        padding: 15px;
+    }
+
+    .menupanel > h1 {
+        font-size: 17px;
+    }
+
+    .nav {
+        width: 100%;
+        min-height: 45px;
+    }
+
+    .menuItems {
+        font-size: 14px;
+    }
+
+    .loreInfo {
+        top: 12%;
+        left: 5%;
+        width: 90%;
+        height: 75%;
+        padding: 15px;
+    }
+
+    .loreInfo h1 {
+        font-size: 18px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media screen and (max-width: 400px) {
+    .left-header h1 {
+        font-size: 13px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 60px;
+    }
+
+    .right-header {
+        gap: 5px;
+    }
+
+    .mintButton {
+        width: 50px;
+        height: 32px;
+    }
+
+    .Menu {
+        width: 35px;
+        height: 35px;
+        margin-right: 5px;
+    }
+
+    .bar {
+        width: 22px;
+    }
+
+    .menupanel {
+        width: 90%;
+    }
+
+    .loreInfo {
+        left: 5%;
+        width: 90%;
+    }
+}
+.menu-close {
+    align-self: flex-end;
+    margin: 0;
+}
+#closeMenu.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+#closeMenu.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+#closeMenu.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
