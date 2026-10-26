@@ -32,3 +32,36 @@ function infoDisplay() {
     loreButton.setAttribute("aria-expanded", String(isOpen));
     loreDisplay.setAttribute("aria-hidden", String(!isOpen));
 }
+const mintButton = document.getElementById("mintButton");
+const mintPanel = document.getElementById("mintPanel");
+
+function toggleMint(){
+    if(!mintButton || !mintPanel){
+        return;
+    }
+    const activated = mintPanel.classList.toggle("active");
+    mintButton.classList.toggle("active", activated);
+    mintButton.setAttribute("aria-expanded", String("activated"));
+    console.log("clicked")
+}
+
+const backgrounds = [
+    document.getElementById("backgroundOne"),
+    document.getElementById("backgroundTwo")
+];
+
+let background_no = 0;
+
+function backgroundChange() {
+    backgrounds.forEach(background => {
+        background.classList.remove("active");
+    });
+
+    backgrounds[background_no].classList.add("active");
+
+    background_no = (background_no + 1) % backgrounds.length;
+}
+
+backgroundChange();
+
+setInterval(backgroundChange, 5000);

@@ -9,7 +9,9 @@
     <script src="scripts.js" defer></script>
 </head>
 
-<body>
+<body id="body">
+    <div class="background-layer" id="backgroundOne"></div>
+    <div class="background-layer" id="backgroundTwo"></div>
 
 <header class="siteheader">
     <section class="left-header">
@@ -21,8 +23,19 @@
 
     <section class="right-header">
         <section class="mintNav">
-            <button class="mintButton" id="mintPanel" type="button">
-                <span>Mint</span>
+            <button class="mintButton" 
+
+            id="mintButton"
+            type="button"
+            aria-label="mint-info"
+            aria-controls="mintPanel"
+            aria-expanded="false"
+            aria-label="MInt link or Info"
+            onclick="toggleMint()"
+            type="button">
+                <span class="mint-bar"></span>
+                <h1 class="mint-bars">Mint</h1>
+                <span class="mint-barh"></span>
             </button>
         </section>
 
@@ -43,51 +56,81 @@
         </section>
     </section>
 </header>
-
 <section class="menupanel" id="menuPanel" aria-label="Main navigation">
-   <button
-    class="Menu active menu-close"
-    id="closeMenu"
-    type="button"
-    onclick="toggleMenu()"
-    aria-label="Close navigation menu">
 
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-</button>
-    <h1>This is where the menu list goes</h1>
+    <!--<div class="button-shelve">
 
-    <div class="menu-options">
+        <div class="menu-options">
+            <button
+                class="nav"
+                id="loreButton"
+                type="button"
+                onclick="infoDisplay()"
+                aria-controls="loreInfo"
+                aria-expanded="false">
 
+                <span class="plus" aria-hidden="true"></span>
+            </button>
+
+            
+        </div>
+
+        <div class="menu-options">
+            <button class="nav" id="aboutButton" type="button">
+                <span class="plus" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <div class="menu-options">
+            <button class="nav" id="contactButton" type="button">
+                <span class="plus" aria-hidden="true"></span>
+            </button>
+        </div>
+
+    </div>-->
+    <div class="button-labels">
         <button
-            class="nav"
-            id="loreButton"
-            type="button"
-            onclick="infoDisplay()"
-            aria-controls="loreInfo"
-            aria-expanded="false">
+                class="JJJ"
+                id="loreButton"
+                type="button"
+                onclick="infoDisplay()"
+                aria-controls="loreInfo"
+                aria-expanded="false">
+                <h2>LORE</h2>
+            </button>
+        <button
+                class="JJJ"
+                id="loreButton"
+                type="button"
+                onclick="contactDisplay()"
+                aria-controls="loreInfo"
+                aria-expanded="false">
+                <h2>CONTACT</h2>
+            </button>
+         <button
+                class="JJJ"
+                id="loreButton"
+                type="button"
+                onclick="contactDisplay()"
+                aria-controls="loreInfo"
+                aria-expanded="false">
+                <h2>ABOUT</h2>
+            </button>  
+    </div>
+    <div class="toggle-off">
+        <button
+        class="Menu active menu-close"
+        id="closeMenu"
+        type="button"
+        onclick="toggleMenu()"
+        aria-label="Close navigation menu">
 
-            <span class="plus" aria-hidden="true"></span>
-            <span class="plus" aria-hidden="true"></span>
-            <h2 class="menuItems">LORE</h2>
-        </button>
-
-        <button class="nav" id="aboutButton" type="button">
-            <span class="plus" aria-hidden="true"></span>
-            <span class="plus" aria-hidden="true"></span>
-            <h2 class="menuItems">ABOUT</h2>
-        </button>
-
-        <button class="nav" id="contactButton" type="button">
-            <span class="plus" aria-hidden="true"></span>
-            <span class="plus" aria-hidden="true"></span>
-            <h2 class="menuItems">CONTACT</h2>
-        </button>
-
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
     </div>
 </section>
-
 <section
     class="loreInfo"
     id="loreInfo"
@@ -102,11 +145,44 @@
             aria-expanded="false">
 
             <span class="plus" aria-hidden="true"></span>
-            <span class="plus" aria-hidden="true"></span>
-            <h2 class="menuItems">LORE</h2>
         </button>
-    <h1>This is where the project lore goes into</h1>
-</section>
+        <h2 class="menuItems">LORE</h2>
+    <h1 class="write-up">Kosmic Misfits wasn’t created because I wanted to make another NFT project.
 
+It started because I finally built something that reflected how I’ve felt my whole life.
+
+Like I never quite fit the mold.
+
+The one who thought differently.
+The black sheep.
+The outcast.
+The one who didn’t quite belong anywhere.
+
+Then one day I stopped trying to fit into someone else’s world…
+
+…and started building my own.
+
+That’s how The Drift was born.
+
+A place where being different isn’t something to hide.
+It’s your greatest strength.
+
+I’m intentionally leaving room for The Drift to grow because I don’t want to dictate every piece of its story on day one.
+
+The people who discover Kosmic Misfits early won’t just watch it grow.
+
+They’ll help shape what it becomes.
+
+Because the best worlds aren’t built by one person.
+
+They’re built by the Misfits who finally found where they belong.
+
+Lost in Space. Found in the Drift.</h1>
+</section>
+<section class="mintPanel" id="mintPanel">
+    <h1>mint info</br> --------------
+        <p>Mint is not currently live !!</p>
+    </h1>
+</section>
 </body>
 </html>
