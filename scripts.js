@@ -45,23 +45,33 @@ function toggleMint(){
     console.log("clicked")
 }
 
-const backgrounds = [
-    document.getElementById("backgroundOne"),
-    document.getElementById("backgroundTwo")
+const NFT_view_port = [
+    document.getElementById("NFT_display1"),
+    document.getElementById("NFT_display2"),
+    document.getElementById("NFT_display3"),
+    document.getElementById("NFT_display4"),
+    document.getElementById("NFT_display5"),
+    document.getElementById("NFT_display6"),
+    document.getElementById("NFT_display7")
 ];
 
-let background_no = 0;
+let NFT_viewPort_no = 0;
 
-function backgroundChange() {
-    backgrounds.forEach(background => {
-        background.classList.remove("active");
-    });
+function NFT_shuffle() {
+    if (NFT_view_port.some(NFT => !NFT)) {
+        return;
+    }
 
-    backgrounds[background_no].classList.add("active");
+    const current = NFT_view_port[NFT_viewPort_no];
 
-    background_no = (background_no + 1) % backgrounds.length;
+    NFT_viewPort_no = (NFT_viewPort_no + 1) % NFT_view_port.length;
+
+    const next = NFT_view_port[NFT_viewPort_no];
+
+    next.classList.add("active");
+    current.classList.remove("active");
 }
 
-backgroundChange();
+NFT_shuffle();
 
-setInterval(backgroundChange, 5000);
+setInterval(NFT_shuffle, 5000);
