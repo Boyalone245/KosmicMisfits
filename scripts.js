@@ -74,4 +74,4 @@ function NFT_shuffle() {
 
 NFT_shuffle();
 
-setInterval(NFT_shuffle, 5000);
+setInterval(NFT_shuffle, 3000);
