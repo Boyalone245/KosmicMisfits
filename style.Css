@@ -21,7 +21,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(11, 15, 26, 0.7);
   pointer-events: none;
   z-index: -1;
 }
@@ -137,26 +137,12 @@ body::before {
     transform 0.3s ease,
     opacity 0.3s ease;
 }
-.mint-bar {
+.mint-bar, .mint-barh {
   display: block;
   flex-shrink: 0;
   opacity: 0;
   height: 3px;
-  width: 50%;
-  gap: 5px;
-  background-color: #e8d0ff;
-  border-radius: 3px;
-  transform-origin: center;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-}
-.mint-barh {
-  display: block;
-  flex-shrink: 0;
-  opacity: 0;
-  height: 3px;
-  width: 50%;
+  width: 30%;
   gap: 5px;
   background-color: #e8d0ff;
   border-radius: 3px;
@@ -170,11 +156,11 @@ body::before {
 }
 #mintButton.active .mint-bar {
   opacity: 1;
-  transform: translateY(11.4px) rotate(45deg);
+  transform: translateY(11.7px) rotate(45deg) ;
 }
 #mintButton.active .mint-barh {
   opacity: 1;
-  transform: translateY(-11.4px) rotate(-45deg);
+  transform: translateY(-11.7px) rotate(-45deg);
 }
 .mintButton:hover {
   background-color: rgba(192, 192, 192, 0.2);
@@ -713,7 +699,7 @@ body::before {
   margin-top: 20vh;
   height: auto;
   width: 50%;
-  animation: float 100s ease-in-out infinite;
+  animation: float 60s ease-in-out infinite;
 }
 @keyframes float {
   0% {
@@ -771,9 +757,9 @@ body::before {
 
     justify-content: space-evenly;
     align-items: center;
-
+    padding: 20px;
     box-sizing: border-box;
-    background-color: transparent;
+    
     position: relative;
 }
 html{
@@ -781,37 +767,46 @@ html{
 }
 .topCharacters{
   display: flex;
-  flex: 0 1 200px;
-  height: 35vh;
+  flex: 0 1 300px;
+  height: 30vh;
   min-width: 0;
   max-width: 200px;
-  background-color: rgba(23, 11, 48, 0.7);
+  background-color: rgba(11, 15, 26, 0.9);
   justify-content: space-evenly;
   align-items: center;
   z-index: -1;
+  border-radius: 12px;
+  box-shadow:
+        inset 0 0 5px rgba(11, 15, 26, 0.9),
+        inset 0 0 15px rgba(11, 39, 168, 0.7),
+        inset 0 0 30px rgba(11, 39, 168, 0.7);
   box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(50px);
+        transition: opacity 0.8s ease,
+                    transform 0.8s ease;
 }
 .team > h2{
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(4rem, 10vw, 5rem);
+  font-size: clamp(4rem, 5vw, 5rem);
   line-height: 1.4;
   color: #dccbff;
-  
+  text-align: center;
   border-bottom: 1px solid #dccbff;
 }
 .team > p{
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-size: clamp(1rem, 2vw, 2.5rem);
   line-height: 1.4;
   color: #dccbff;
+  text-align: center;
 }
 .team{
 flex-direction: column;
-background-color: transparent;
 }
 .Team , .team{
   display: flex;
@@ -820,22 +815,64 @@ background-color: transparent;
   align-items: center;
   width: 90%;
   height: auto;
-  padding: 30px;
+  padding: 0;
   margin:  auto;
   gap: 20px;
   border-radius: 10px;
+  margin: 10px auto;
+  
 }
 
 .teamhighlight{
   display: flex;
   flex-direction: column;
-  flex: 0 1 45vh;
-  height: 60vh;
+  flex: 0 1 40vh;
+  height: 85vh;
   width: 50vh;
-  background-color: red;
+  background-color: rgba(11, 15, 26, 0.8);
   padding: 0;
+  margin: 0;
   border-radius: 20px;
+  text-align: center;
+  opacity: 0;
+  box-shadow:
+        inset 0 0 5px rgba(11, 39, 168, 0.7),
+        inset 0 0 15px rgba(11, 39, 168, 0.7),
+        inset 0 0 30px rgba(11, 39, 168, 0.7);
+        transform: translateY(50px);
+        transition: opacity 0.8s ease,
+                    transform 0.8s ease;
+}
+.teamhighlight.active, .topCharacters.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+.teamhighlight h1 {
+  color: #dccbff;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
   
+}
+.teamhighlight h6 {
+  margin: 0;
+  padding: 0;
+  color: rgb(150, 143, 143);
+  top: 0;
+  height: 5px;
+  transform: translateY(-1px);
+  padding: 10px;
+}
+.teamhighlight h5 {
+  margin: 0;
+  color: #dccbff;
+  top: 0;
+  padding: 15px;
+}
+.teamhighlight a{
+  transform: translateY(-7px);
+  text-decoration: none;
+  color: rgb(245, 174, 174);
 }
 .overhead{
   display: flex;
@@ -846,17 +883,19 @@ background-color: transparent;
   justify-content: center;
   align-items: center;
 }
-.teamhighlight-content-header, .pfp{
+.teamhighlight-content-header, .ring{
   height: 70%;
   width: 100%;
   position: absolute;
 background-size: cover;
-
 background-repeat: no-repeat;
 background-position:center;
 }
 .teamhighlight-content-header{
   border-radius: 20px;
+  box-shadow: 
+        0 0 5px rgba(11, 39, 168, 0.7),
+        0 0 15px rgba(11, 39, 168, 0.7);
 }
 .teamhighlight:nth-child(1) .teamhighlight-content-header {
 top: 0;
@@ -871,21 +910,121 @@ top: 0;
 background-image: url(images/Nod3x-banner.png);
 }
 .pfp{
-  height: 80px;
-  width: 80px;
+  height: 83px;
+  width: 83px;
   bottom: 0;
   z-index: 1px;
   margin-top: 0%;
   border-radius: 50%;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-position: center;
+  background-size: contain;
+}
+.ring, .rotatingRIng{
+  display: flex;
+  height: 90px;
+  width: 90px;
+  bottom: 0;
+  border-radius: 50%;
+  margin-top: 0%;
+  
+  
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+.profile-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rotatingRIng {
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    background: repeating-conic-gradient(
+        rgba(11, 39, 168, 1) 0deg 4deg,
+        transparent 4deg 12deg
+    );
+
+    -webkit-mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 3px),
+        black calc(100% - 2px)
+    );
+
+    mask: radial-gradient(
+        farthest-side,
+        transparent calc(100% - 3px),
+        black calc(100% - 2px)
+    );
+    animation: rotateRing 20s linear infinite;
+}
+
+.profile-container  {
+    position: relative;
+
+    width: 83px;
+    height: 83px;
+
+    border-radius: 50%;
+    z-index: 2;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@keyframes rotateRing {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.ring{
+  
+  
+  box-shadow: 
+        0 0 5px rgba(11, 39, 168, 0.7),
+        0 0 15px rgba(11, 39, 168, 0.7);
+}
+
+#teamBanner{
+  background-size: cover;
+  background-position: center;
+}
+#teampfp{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: aquamarine;
 }
 .teamhighlight:nth-child(1) .pfp {
+  display: flex;
   background-image: url(images/obie-pfp.png);
 }
 .teamhighlight:nth-child(2) .pfp {
+  display: flex;
   background-image: url(images/velli-pfp.png);
 }
 .teamhighlight:nth-child(3) .pfp {
+  display: flex;
   background-image: url(images/Nod3x-pfp.png);
+}
+.team .pfp {
+  position: relative;
+  z-index: 1;
+    background-image: url("images/KosmicMisfits.png");
 }
 .teamhighlight-content-header::after{
   content: "";
@@ -943,6 +1082,13 @@ background-image: url(images/Nod3x-banner.png);
   .main_body > h2 {
     font-size: clamp(1rem, 3.5vw, 1.5rem);
   }
+  .topCharacters{
+    flex: 1 1 calc(50% - 10px);
+    width: calc(50% - 10px);
+  width: 20px;
+  background-color: rgba(11, 15, 26, 0.8);
+  
+}
 }
 
 /* MOBILE */
@@ -1031,7 +1177,7 @@ background-image: url(images/Nod3x-banner.png);
     flex: 1 1 calc(50% - 10px);
     width: calc(50% - 10px);
   width: 20px;
-  background-color: red;
+  background-color: rgba(11, 15, 26, 0.8);
   
 }
 }
@@ -1096,10 +1242,10 @@ background-image: url(images/Nod3x-banner.png);
     font-size: 0.85rem;
   }
   .topCharacters {
-  flex: 0 1 40%;
+  flex: 0 1 80%;
   width: 100%;
   max-width: 100%;
 
-  background-color: gray;
+  background-color: rgba(11, 15, 26, 0.8);
 }
 }

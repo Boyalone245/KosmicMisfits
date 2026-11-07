@@ -75,3 +75,19 @@ function NFT_shuffle() {
 NFT_shuffle();
 
 setInterval(NFT_shuffle, 3000);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+    else{
+      entry.target.classList.remove("active")
+    }
+  });
+}, {
+  threshold: 0.22
+});
+
+document.querySelectorAll(".teamhighlight, .topCharacters, .pfp").forEach(element => {
+  observer.observe(element);
+});
