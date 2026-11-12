@@ -40,7 +40,7 @@ body::before {
   pointer-events: none;
 }
 
-/* HEADER */
+
 
 .siteheader {
   display: flex;
@@ -101,7 +101,7 @@ body::before {
   text-indent: -9999px;
 }
 
-/* MINT BUTTON */
+
 
 .mintNav {
   margin: 25px;
@@ -209,7 +209,7 @@ body::before {
     opacity 0.3s ease,
     visibility 0.5s;
 }
-/* HAMBURGER BUTTON */
+
 
 .menu {
   display: flex;
@@ -258,7 +258,7 @@ body::before {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* NAVIGATION MENU PANEL */
+
 
 .menupanel {
   display: flex;
@@ -313,7 +313,7 @@ body::before {
   line-height: 1.5;
   text-align: center;
 }
-/* Menu button SHelves */
+
 .button-shelve {
   display: flex;
   flex-direction: column;
@@ -348,7 +348,7 @@ body::before {
   height: 200px;
   width: 70px;
 }
-/* MENU BUTTON CONTAINER */
+
 
 .menu-options {
   display: flex;
@@ -362,7 +362,7 @@ body::before {
   width: 50px;
 }
 
-/* LORE, ABOUT AND CONTACT BUTTONS */
+
 
 .nav {
   display: flex;
@@ -482,7 +482,7 @@ body::before {
   text-align: center;
 }
 
-/* PLUS ICONS */
+
 
 .plus {
   position: relative;
@@ -507,56 +507,52 @@ body::before {
   transform: translateX(-17px) translateY(0px) rotate(45deg)  ;
 }
 
-/*.plus::before,
-.plus::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 3px;
-    background-color: #E8D0FF;
-    transform: translate(-50%, -50%) ;
-}
 
-.plus::before {
-    width: 2px;
-    height: 20px;
-}
-
-.plus::after {
-    width: 20px;
-    height: 2px;
-}
-
-/* LORE INFORMATION PANEL */
 
 .loreInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  position: relative;
-  width: 100%;
+  
+  width: 80%;
   height: auto;
-
-  padding: 0;
-  margin: 0;
+  align-self: center;
+  justify-self: center;
+  
+  margin: auto;
   color: azure;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
-  background-color: rgba(23, 11, 48, 0);
+  background-color: rgba(11, 15, 26, 0.5);
 
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(5px);
-  opacity: 1;
+  opacity: 0;
   visibility:visible;
   pointer-events: none;
-  z-index: -1;
-  overflow-y: hidden;  
+  z-index: -2px;
+  overflow-y: hidden; 
+   box-shadow:
+        inset 0 0 5px rgba(11, 15, 26, 0.9),
+        inset 0 0 15px rgba(11, 39, 168, 1),
+        inset 0 0 30px rgba(11, 39, 168, 1),
+        0 0 5px rgba(11, 15, 26, 0.9),
+        0 0 30px rgba(11, 39, 168, 0.7);
+        transform: translateY(50px);
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease,
-    visibility 0.3s linear 0.3s;
+    transform 1s ease,
+    opacity 1s ease,
+    visibility 1s linear 0.3s;
+}
+.loreInfo .menuItems{
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  
+  border-radius: 0;
+  font-size: 30px;
+  width: auto;  
 }
 .loreInfo_header {
   display: flex; 
@@ -564,29 +560,19 @@ body::before {
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  width: 100%;
+  width: auto;
   top: 0;
 }
-#loreInfo.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  top: 15%;
-  height: auto;
-  transform: translateX(0);
-  z-index: 1;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease,
-    visibility 0.2s;
-}
+
 
 .loreInfo h1 {
   margin-top: 0;
   font-size: 22px;
   line-height: auto;
+  padding: 20px;
 }
 .write-up {
+  font-size: 10px;
   color: #e8d0ff;
 }
 .NFT_display {
@@ -765,26 +751,81 @@ body::before {
 html{
   scroll-behavior: smooth;
 }
-.topCharacters{
+.topCharacters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 300px;
+    height: 30vh;
+    min-width: 200px;
+    max-width: 300px;
+    text-align: center;
+    background-color: rgba(11, 15, 26, 0.9);
+    border-radius: 12px;
+    position: relative;
+    box-shadow:
+        inset 0 0 5px rgba(11, 15, 26, 0.9),
+        inset 0 0 15px rgba(11, 39, 168, 0.7),
+        inset 0 0 20px rgba(11, 39, 168, 0.5);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.topCharacters h5 {
+    position: relative;
+    z-index: 2;
+    color: #dccbff;
+    margin: 0;
+    font-size: 15px;
+}
+.game-profile-display, .video-display{
   display: flex;
-  flex: 0 1 300px;
-  height: 30vh;
-  min-width: 0;
-  max-width: 200px;
+  padding: 10px;
+  position: relative;
+    z-index: 5;
+  width: 100%;
+  margin-top: 0;
   background-color: rgba(11, 15, 26, 0.9);
-  justify-content: space-evenly;
-  align-items: center;
-  z-index: -1;
   border-radius: 12px;
-  box-shadow:
+  object-fit: cover;
+ 
+}
+.topCharacters h5 a {
+    position: relative;
+    z-index: 3;
+    color: #4209b3;
+    text-decoration: none;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.topCharacters h5 a:hover {
+    position: relative;
+    z-index: 3;
+    color: #601ee4;
+    text-decoration: none;
+    cursor: pointer;
+    pointer-events: auto;
+    font-size: large;
+}
+.game-profile-display{
+  height: 80%;
+   box-shadow:
         inset 0 0 5px rgba(11, 15, 26, 0.9),
         inset 0 0 15px rgba(11, 39, 168, 0.7),
         inset 0 0 30px rgba(11, 39, 168, 0.7);
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(50px);
-        transition: opacity 0.8s ease,
-                    transform 0.8s ease;
+        background-position:center;
+        background-size:cover;
+        background-repeat: no-repeat;
+}
+.video-display{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.lower .topCharacters .game-profile-display a{
+  text-decoration: none;
+  color: #dccbff;
 }
 .team > h2{
   margin: 0;
@@ -818,7 +859,7 @@ flex-direction: column;
   padding: 0;
   margin:  auto;
   gap: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   margin: 10px auto;
   
 }
@@ -843,9 +884,13 @@ flex-direction: column;
         transition: opacity 0.8s ease,
                     transform 0.8s ease;
 }
-.teamhighlight.active, .topCharacters.active{
+.teamhighlight.active, .topCharacters.active ,.loreInfo.active{
   opacity: 1;
   transform: translateY(0);
+  transition:
+    transform 1s ease,
+    opacity 1s ease,
+    visibility 1s linear 0.1s;
 }
 .teamhighlight h1 {
   color: #dccbff;
@@ -869,10 +914,11 @@ flex-direction: column;
   top: 0;
   padding: 15px;
 }
+
 .teamhighlight a{
   transform: translateY(-7px);
   text-decoration: none;
-  color: rgb(245, 174, 174);
+  color: rgb(80, 109, 237);
 }
 .overhead{
   display: flex;
@@ -910,8 +956,8 @@ top: 0;
 background-image: url(images/Nod3x-banner.png);
 }
 .pfp{
-  height: 83px;
-  width: 83px;
+  height: 85px;
+  width: 85px;
   bottom: 0;
   z-index: 1px;
   margin-top: 0%;
@@ -1035,166 +1081,495 @@ background-image: url(images/Nod3x-banner.png);
   border-radius: 20px;
 }
 
-/* TABLET */
-@media screen and (max-width: 768px) {
-  .left-header {
-    width: 55%;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.siteheader {
+  min-height: 100px;
+  padding-inline: clamp(12px, 3vw, 36px);
+  gap: clamp(8px, 2vw, 24px);
+}
+
+.left-header,
+.right-header {
+  min-width: 0;
+}
+
+.left-header {
+  flex: 1 1 0;
+  width: auto;
+}
+
+.right-header {
+  flex: 1 1 0;
+  width: auto;
+  gap: clamp(8px, 1.5vw, 20px);
+}
+
+.logo {
+  width: clamp(110px, 18vw, 250px);
+  max-width: 100%;
+}
+
+.mintNav {
+  margin: 0;
+}
+
+.mintButton {
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+.Menu {
+  margin-right: 0;
+  flex-shrink: 0;
+}
+
+.mintPanel,
+.menupanel {
+  box-sizing: border-box;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 125px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mintPanel {
+  flex-wrap: wrap;
+}
+
+.menupanel {
+  flex-wrap: wrap;
+}
+
+.button-shelve {
+  width: auto;
+  min-width: 0;
+}
+
+.menu-options {
+  width: 100%;
+}
+
+.loreInfo {
+  position: relative;
+  width: min(1100px, calc(100% - 40px));
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 32px auto;
+  padding: clamp(16px, 3vw, 32px);
+  overflow: visible;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  
+  transform: translateY(30px);
+}
+
+.loreInfo.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.loreInfo h1 {
+  line-height: 1.25;
+}
+
+.write-up {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.7;
+  color: #b0abb8;
+}
+
+.NFT_display {
+  width: min(600px, calc(100% - 32px));
+  height: clamp(260px, 60vw, 600px);
+  max-height: 70vh;
+  max-height: 70dvh;
+}
+
+.main_body {
+  width: min(1200px, calc(100% - 32px));
+  min-height: min(620px, calc(100dvh - 120px));
+  height: auto;
+  margin: 100px auto 32px;
+  padding: clamp(16px, 4vw, 40px);
+  top: auto;
+}
+
+.main_intro,
+.intro_animations {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+  padding: 12px;
+}
+
+.floating_image {
+  display: block;
+  width: min(55%, 520px);
+  max-height: 45vh;
+  object-fit: contain;
+  margin: 24px auto 0;
+}
+
+.lower {
+  width: min(1400px, 100%);
+  margin-inline: auto;
+}
+
+.topCharacters {
+  flex: 1 1 260px;
+  width: auto;
+  min-width: 0;
+  max-width: 340px;
+  min-height: 260px;
+  height: auto;
+  padding: 12px;
+  margin: 0 auto;
+}
+
+.game-profile-display,
+.video-display {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.Team,
+.team {
+  width: min(1400px, calc(100% - 32px));
+}
+
+.teamhighlight {
+  flex: 1 1 280px;
+  width: min(100%, 360px);
+  min-width: 0;
+  max-width: 420px;
+  min-height: 520px;
+  height: auto;
+}
+
+.overhead {
+  min-height: 150px;
+}
+
+.teamhighlight-content-header,
+.ring {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .siteheader {
+    padding-inline: max(32px, calc((100vw - 1400px) / 2));
   }
 
-  .left-header h1 {
-    font-size: 20px;
+  .menupanel,
+  .mintPanel {
+    right: max(24px, calc((100vw - 1400px) / 2));
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .siteheader {
+    min-height: 88px;
   }
 
   .logo {
-    width: 90px;
-    height: 85px;
-  }
-
-  .right-header {
-    width: 45%;
-  }
-
-  .Menu {
-    margin-right: 15px;
+    width: clamp(90px, 16vw, 160px);
+    height: 82px;
   }
 
   .menupanel {
-    top: 100px;
-    width: 40%;
+    top: 98px;
+    right: 16px;
+    width: min(360px, calc(100vw - 32px));
+    max-height: calc(100dvh - 116px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 18px;
+    transform: translateX(calc(100% + 24px));
   }
 
-  .loreInfo {
-    left: 10%;
-    width: 80%;
+  .mintPanel {
+    top: 98px;
+    right: 16px;
+    width: min(340px, calc(100vw - 32px));
+    max-height: calc(100dvh - 116px);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    transform: translateX(calc(100% + 24px));
   }
-  #loreInfo.active {
-    top: 15%;
+
+  .button-shelve,
+  .button-labels,
+  .menu-options {
+    width: 100%;
     height: auto;
-    transform: translateX(0);
   }
-  .NFT_display {
-    width: 80vw;
-    height: 60vh;
-  }
-  .CW {
-    font-size: clamp(2.2rem, 7vw, 3.5rem);
-  }
-  .main_body > h2 {
-    font-size: clamp(1rem, 3.5vw, 1.5rem);
-  }
-  .topCharacters{
-    flex: 1 1 calc(50% - 10px);
-    width: calc(50% - 10px);
-  width: 20px;
-  background-color: rgba(11, 15, 26, 0.8);
-  
-}
-}
 
-/* MOBILE */
+  .menu-options {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .JJJ,
+  .jjj,
+  .menuItems {
+    width: 100%;
+  }
+
+  .main_body {
+    min-height: 500px;
+  }
+
+  .teamhighlight {
+    flex-basis: calc(50% - 20px);
+  }
+}
 
 @media screen and (max-width: 600px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+
   .siteheader {
-    min-height: 80px;
+    min-height: 76px;
+    padding-inline: 12px;
+    gap: 8px;
+    border-radius: 0 0 10px 10px;
   }
 
   .left-header {
-    width: 60%;
+    gap: 6px;
   }
 
   .left-header h1 {
-    font-size: 16px;
+    font-size: clamp(12px, 3.4vw, 17px);
+    line-height: 1.2;
   }
 
   .logo {
-    width: 60px;
-    height: 70px;
+    width: clamp(58px, 17vw, 92px);
+    height: 66px;
   }
 
   .right-header {
-    width: 40%;
-    min-height: 80px;
+    min-height: 76px;
+    gap: 8px;
+    justify-content: flex-end;
   }
 
   .mintButton {
-    width: 60px;
-    height: 35px;
-    margin-left: 0;
+    width: 56px;
+    height: 36px;
+  }
+
+  .mint-bars {
+    font-size: 12px;
   }
 
   .Menu {
     width: 40px;
     height: 40px;
-    margin-right: 10px;
+    margin: 0;
   }
 
   .bar {
-    width: 25px;
+    width: 21px;
   }
 
   .menupanel {
-    top: 15%;
-    right: 3%;
-    max-width: 65%;
-    max-height: 75vh;
-    padding: 15px;
+    top: 86px;
+    right: 12px;
+    width: min(340px, calc(100vw - 24px));
+    max-height: calc(100dvh - 98px);
+    padding: 14px;
+    gap: 10px;
   }
+
   .mintPanel {
-    width: 85vw;
-    height: 40vh;
+    top: 86px;
+    right: 12px;
+    width: min(340px, calc(100vw - 24px));
+    max-height: calc(100dvh - 98px);
+    padding: 14px;
   }
+
   .menupanel > h1 {
     font-size: 17px;
   }
 
   .menuItems {
-    font-size: 14px;
-  }
-
-  .loreInfo {
-    top: 12%;
-    left: 5%;
-    width: 90%;
+    min-height: 44px;
     height: auto;
-    padding: 15px;
-  }
-
-  .loreInfo h1 {
-    font-size: 18px;
-  }
-  .NFT_display {
-    width: 90vw;
-    height: 50vh;
-  }
-  .CW {
-    font-size: clamp(1.8rem, 8vw, 2.5rem);
-  }
-
-  .main_body > h2 {
-    font-size: clamp(0.9rem, 4vw, 1.2rem);
-  }
-  .topCharacters{
-    flex: 1 1 calc(50% - 10px);
-    width: calc(50% - 10px);
-  width: 20px;
-  background-color: rgba(11, 15, 26, 0.8);
-  
-}
-}
-
-/* SMALL MOBILE */
-
-@media screen and (max-width: 400px) {
-  .siteheader{
-    height: 80px;
-  }
-  .left-header h1 {
+    padding: 10px;
     font-size: 13px;
   }
 
+  .button-shelve {
+    min-height: 0;
+    padding: 8px;
+  }
+
+  .button-labels {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .JJJ,
+  .jjj {
+    min-height: 44px;
+    height: auto;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .nav {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .X,
+  .Discord {
+    width: 44%;
+    height: 40px;
+  }
+
+  .loreInfo {
+    width: calc(100% - 24px);
+    margin: 24px auto;
+    padding: 14px;
+  }
+
+  .loreInfo .menuItems {
+    font-size: 20px;
+  }
+
+  .loreInfo h1 {
+    font-size: clamp(18px, 5vw, 24px);
+    padding: 10px;
+  }
+
+  .NFT_display {
+    width: calc(100% - 24px);
+    height: clamp(230px, 65vw, 420px);
+    margin: 24px auto;
+  }
+
+  .main_body {
+    width: calc(100% - 24px);
+    min-height: 430px;
+    margin: 88px auto 24px;
+    padding: 16px 10px;
+  }
+
+  .main_intro,
+  .intro_animations {
+    padding: 10px 4px;
+  }
+
+  .CW {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+    overflow-wrap: anywhere;
+  }
+
+  .main_intro > h2 {
+    font-size: clamp(0.95rem, 4.2vw, 1.35rem);
+  }
+
+  .floating_image {
+    width: min(80%, 360px);
+    max-height: 35vh;
+    margin-top: 16px;
+  }
+
+  .lower {
+    gap: 14px;
+    padding: 14px 12px;
+  }
+
+  .topCharacters {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 420px;
+    min-height: 240px;
+  }
+
+  .team > h2 {
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+  }
+
+  .team > p {
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+    padding-inline: 8px;
+  }
+
+  .Team,
+  .team {
+    width: calc(100% - 24px);
+    gap: 16px;
+  }
+
+  .teamhighlight {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 440px;
+    min-height: 500px;
+  }
+
+  .teamhighlight h1 {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .siteheader {
+    padding-inline: 8px;
+    gap: 4px;
+  }
+
+  .left-header h1 {
+    font-size: 11px;
+  }
+
   .logo {
-    width: 45px;
-    height: 60px;
+    width: 52px;
+    height: 58px;
   }
 
   .right-header {
@@ -1202,50 +1577,39 @@ background-image: url(images/Nod3x-banner.png);
   }
 
   .mintButton {
-    width: 50px;
-    height: 32px;
-  }
-  .mintButton:hover{
-    width: 55px;
-    height: 37px;
-    background-color: transparent;
-    font-size: larger;
+    width: 48px;
+    height: 34px;
   }
 
   .Menu {
-    width: 35px;
-    height: 35px;
-    margin-right: 5px;
-  }
-  .Menu:hover{
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .bar {
-    width: 22px;
+    width: 19px;
   }
 
-  .menupanel {
-    width: 90%;
+  .main_body {
+    min-height: 390px;
   }
 
-  .loreInfo {
-    left: 5%;
-    width: 90%;
+  .CW {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
   }
-  /*.CW {
-    font-size: clamp(1.5rem, 7.5vw, 1.9rem);
-  }*/
 
-  .main_body > h2 {
-    font-size: 0.85rem;
+  .teamhighlight {
+    min-height: 460px;
   }
-  .topCharacters {
-  flex: 0 1 80%;
-  width: 100%;
-  max-width: 100%;
-
-  background-color: rgba(11, 15, 26, 0.8);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

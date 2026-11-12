@@ -1,4 +1,4 @@
-const loreDisplay = document.getElementById("loreInfo");
+
 const loreButton = document.getElementById("loreButton");
 
 const menuPanel = document.getElementById("menuPanel");
@@ -88,6 +88,38 @@ const observer = new IntersectionObserver((entries) => {
   threshold: 0.22
 });
 
-document.querySelectorAll(".teamhighlight, .topCharacters, .pfp").forEach(element => {
+document.querySelectorAll(".teamhighlight, .topCharacters, .pfp, .loreInfo").forEach(element => {
   observer.observe(element);
 });
+function closeAllPanels(except = null) {
+    Object.keys(panels).forEach((panelName) => {
+        if (panelName !== except) {
+            closePanel(panelName);
+        }
+    });
+}
+
+function openPanel(panelName) {
+    const panel = panels[panelName];
+
+    if (!panel) return;
+
+    closeAllPanels(panelName);
+
+    panel.classList.add("active");
+    panel.setAttribute("aria-hidden", "false");
+}
+
+function togglePanel(panelName) {
+    const panel = panels[panelName];
+
+    if (!panel) return;
+
+    const isAlreadyOpen = panel.classList.contains("active");
+
+    if (isAlreadyOpen) {
+        closePanel(panelName);
+    } else {
+        openPanel(panelName);
+    }
+}
