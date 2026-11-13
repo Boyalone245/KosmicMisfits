@@ -1,98 +1,38 @@
 
-const loreButton = document.getElementById("loreButton");
-
 const menuPanel = document.getElementById("menuPanel");
 const menuButton = document.getElementById("bars");
-const closeMenuButton = document.getElementById("closeMenu");
 
-function toggleMenu() {
-  if (!menuPanel || !menuButton) return;
-
-  const isOpen = menuPanel.classList.toggle("active");
-
-  menuButton.classList.toggle("active", isOpen);
-
-  if (closeMenuButton) {
-    closeMenuButton.classList.toggle("active", isOpen);
-  }
-
-  menuButton.setAttribute("aria-expanded", String(isOpen));
-
-  menuButton.setAttribute(
-    "aria-label",
-    isOpen ? "Close navigation menu" : "Open navigation menu",
-  );
-}
-function infoDisplay() {
-  if (!loreDisplay || !loreButton) return;
-
-  const isOpen = loreDisplay.classList.toggle("active");
-
-  loreButton.classList.toggle("active", isOpen);
-  loreButton.setAttribute("aria-expanded", String(isOpen));
-  loreDisplay.setAttribute("aria-hidden", String(!isOpen));
-}
 const mintButton = document.getElementById("mintButton");
 const mintPanel = document.getElementById("mintPanel");
 
-function toggleMint() {
-  if (!mintButton || !mintPanel) {
-    return;
-  }
-  const activated = mintPanel.classList.toggle("active");
-  mintButton.classList.toggle("active", activated);
-  mintButton.setAttribute("aria-expanded", String("activated"));
-  console.log("clicked");
+const panels = {
+    menu: menuPanel,
+    mint: mintPanel
+};
+
+function closePanel(panelName) {
+    const panel = panels[panelName];
+
+    if (!panel) return;
+
+    panel.classList.remove("active");
+    panel.setAttribute("aria-hidden", "true");
+
+    if (panelName === "menu" && menuButton) {
+        menuButton.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+    }
+
+    if (panelName === "mint" && mintButton) {
+        mintButton.classList.remove("active");
+        mintButton.setAttribute("aria-expanded", "false");
+        mintButton.setAttribute("aria-label", "Open mint information");
+    }
 }
 
-const NFT_view_port = [
-  document.getElementById("NFT_display1"),
-  document.getElementById("NFT_display2"),
-  document.getElementById("NFT_display3"),
-  document.getElementById("NFT_display4"),
-  document.getElementById("NFT_display5"),
-  document.getElementById("NFT_display6"),
-  document.getElementById("NFT_display7"),
-];
-
-let NFT_viewPort_no = 0;
-
-function NFT_shuffle() {
-  if (NFT_view_port.some((NFT) => !NFT)) {
-    return;
-  }
-
-  const current = NFT_view_port[NFT_viewPort_no];
-
-  NFT_viewPort_no = (NFT_viewPort_no + 1) % NFT_view_port.length;
-
-  const next = NFT_view_port[NFT_viewPort_no];
-
-  next.classList.add("active");
-  current.classList.remove("active");
-}
-
-NFT_shuffle();
-
-setInterval(NFT_shuffle, 3000);
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-    else{
-      entry.target.classList.remove("active")
-    }
-  });
-}, {
-  threshold: 0.22
-});
-
-document.querySelectorAll(".teamhighlight, .topCharacters, .pfp, .loreInfo").forEach(element => {
-  observer.observe(element);
-});
 function closeAllPanels(except = null) {
-    Object.keys(panels).forEach((panelName) => {
+    Object.keys(panels).forEach(panelName => {
         if (panelName !== except) {
             closePanel(panelName);
         }
@@ -108,6 +48,18 @@ function openPanel(panelName) {
 
     panel.classList.add("active");
     panel.setAttribute("aria-hidden", "false");
+
+    if (panelName === "menu" && menuButton) {
+        menuButton.classList.add("active");
+        menuButton.setAttribute("aria-expanded", "true");
+        menuButton.setAttribute("aria-label", "Close navigation menu");
+    }
+
+    if (panelName === "mint" && mintButton) {
+        mintButton.classList.add("active");
+        mintButton.setAttribute("aria-expanded", "true");
+        mintButton.setAttribute("aria-label", "Close mint information");
+    }
 }
 
 function togglePanel(panelName) {
@@ -115,11 +67,132 @@ function togglePanel(panelName) {
 
     if (!panel) return;
 
-    const isAlreadyOpen = panel.classList.contains("active");
-
-    if (isAlreadyOpen) {
+    if (panel.classList.contains("active")) {
         closePanel(panelName);
     } else {
         openPanel(panelName);
     }
 }
+
+function toggleMenu() {
+    togglePanel("menu");
+}
+
+function toggleMint() {
+    togglePanel("mint");
+}
+
+// Lore is now a normal page section.
+function aboutsection() {
+    closeAllPanels();
+
+    const loreSection = document.getElementById("loreInfo");
+
+    if (loreSection) {
+        loreSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
+}
+
+// Keep compatibility with older HTML.
+function infoDisplay() {
+    aboutsection();
+}
+
+// Close floating panels when clicking outside.
+document.addEventListener("click", event => {
+
+    const clickedMenu =
+        menuPanel?.contains(event.target) ||
+        menuButton?.contains(event.target);
+
+    const clickedMint =
+        mintPanel?.contains(event.target) ||
+        mintButton?.contains(event.target);
+
+    if (!clickedMenu) {
+        closePanel("menu");
+    }
+
+    if (!clickedMint) {
+        closePanel("mint");
+    }
+});
+
+// Escape closes all floating panels.
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeAllPanels();
+    }
+});
+const NFT_view_port = [
+    document.getElementById("NFT_display1"),
+    document.getElementById("NFT_display2"),
+    document.getElementById("NFT_display3"),
+    document.getElementById("NFT_display4"),
+    document.getElementById("NFT_display5"),
+    document.getElementById("NFT_display6"),
+    document.getElementById("NFT_display7")
+].filter(Boolean);
+
+let NFT_viewPort_no = 0;
+
+function showNFT(index) {
+    NFT_view_port.forEach((NFT, currentIndex) => {
+        NFT.classList.toggle("active", currentIndex === index);
+    });
+}
+
+function NFT_shuffle() {
+    if (NFT_view_port.length < 2) return;
+
+    NFT_viewPort_no =
+        (NFT_viewPort_no + 1) % NFT_view_port.length;
+
+    showNFT(NFT_viewPort_no);
+}
+
+if (NFT_view_port.length > 0) {
+    showNFT(0);
+
+    if (NFT_view_port.length > 1) {
+        setInterval(NFT_shuffle, 3000);
+    }
+}
+
+const revealElements = document.querySelectorAll(
+    ".teamhighlight, .topCharacters, .loreInfo"
+);
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+        element.classList.add("active");
+    });
+
+}
+
+closeAllPanels();
