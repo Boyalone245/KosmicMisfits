@@ -204,6 +204,7 @@ body::before {
   visibility: visible;
   pointer-events: auto;
   transform: translateX(0);
+  transform: translateY(40px);
   transition:
     transform 0.3s ease,
     opacity 0.3s ease,
@@ -300,7 +301,7 @@ body::before {
   visibility: visible;
   pointer-events: auto;
   transform: translateX(0);
-
+  transform: translateY(40px);
   transition:
     transform 0.3s ease,
     opacity 0.3s ease,
@@ -982,16 +983,6 @@ background-image: url(images/Nod3x-banner.png);
   align-items: center;
   background-color: transparent;
 }
-.profile-container {
-    position: relative;
-    width: 100px;
-    height: 100px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .rotatingRIng {
     position: absolute;
     inset: 0;
@@ -1024,7 +1015,7 @@ background-image: url(images/Nod3x-banner.png);
     height: 83px;
 
     border-radius: 50%;
-    z-index: 2;
+    z-index: -1;
 
     background-size: cover;
     background-position: center;
@@ -1063,7 +1054,7 @@ background-image: url(images/Nod3x-banner.png);
   display: flex;
   background-image: url(images/velli-pfp.png);
 }
-.teamhighlight:nth-child(3) .pfp {
+.teamhighlight:nth-child(3) .pfp, .footer .pfp {
   display: flex;
   background-image: url(images/Nod3x-pfp.png);
 }
@@ -1287,12 +1278,39 @@ a {
   flex-direction: column;
   height: auto;
   width: 100%;
-  background-color: rgba(234, 237, 246, 0.9);
+  color: rgb(150, 143, 143);
   justify-content: center;
   align-items: center;
   padding: auto;
 }
-
+.footer .pfp{
+  margin: 5px;
+  border-radius: 10%;
+  height: 3em;
+  width: 3em;
+  
+  background-image: url(images/Nod3x\ Business\ logo.png);
+}
+.footer ul {
+  display: flex;
+  flex: row;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  color: #dccbff;
+}
+.footer a {
+  color: rgb(150, 143, 143);
+  text-decoration: none;
+}
+.footer .X ,.footer .Discord{
+  height: 2em;
+  width: 2em;
+  
+}
 @media screen and (min-width: 1200px) {
   .siteheader {
     padding-inline: max(32px, calc((100vw - 1400px) / 2));
