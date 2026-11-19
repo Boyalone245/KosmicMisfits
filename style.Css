@@ -1293,8 +1293,9 @@ a {
 }
 .footer ul {
   display: flex;
-  flex: row;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 15px;
   list-style: none;
   padding: 0;
@@ -1302,11 +1303,24 @@ a {
   text-align: center;
   color: #dccbff;
 }
+.footer ul li {
+  display: flex;
+  align-items:center ;
+  justify-content: center;
+}
+.footer ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5px;
+    text-decoration: none;
+}
 .footer a {
   color: rgb(150, 143, 143);
   text-decoration: none;
 }
-.footer .X ,.footer .Discord{
+.footer .X_ ,.footer .Discord_{
   height: 2em;
   width: 2em;
   
