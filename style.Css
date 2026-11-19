@@ -171,10 +171,10 @@ body::before {
 }
 .mintPanel {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
   position: fixed;
   top: 115px;
   right: 3%;
@@ -193,11 +193,15 @@ body::before {
   visibility: hidden;
   pointer-events: none;
   transform: translateX(100%) translateY(20%);
-
+  font-size: small;
   transition:
     transform 0.3s ease,
     opacity 0.3s ease,
     visibility 0.3s linear 0.3s;
+}
+.mintPanel a {
+  color: yellow;
+  text-decoration: none;
 }
 #mintPanel.active {
   opacity: 1;
