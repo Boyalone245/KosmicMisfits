@@ -217,12 +217,12 @@ function updateLoader() {
     ? Math.round((loaded / total) * 100)
     : 0;
 
-  currentProgress = Math.min(resourceProgress, 85);
+  currentProgress = Math.min(resourceProgress, 75);
 
   percentage.textContent = `${currentProgress}%`;
   progress.style.width = `${currentProgress}%`;
 
-  if (currentProgress >= 85) {
+  if (currentProgress >= 75) {
     finishLoading();
   }
 }
@@ -237,6 +237,9 @@ function finishLoading() {
   }, 400);
 }
 
+window.addEventListener("load", () => {
+  finishLoading();
+});
 
 const loaderInterval = setInterval(() => {
   updateLoader();
