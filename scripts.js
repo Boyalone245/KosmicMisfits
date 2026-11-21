@@ -196,3 +196,55 @@ if ("IntersectionObserver" in window) {
 }
 
 closeAllPanels();
+document.body.classList.add("loading");
+
+const preloader = document.getElementById("preloader");
+const percentage = document.getElementById("loadPercentage");
+const progress = document.getElementById("loaderProgress");
+
+let currentProgress = 0;
+
+function updateLoader() {
+  const resources = performance.getEntriesByType("resource");
+
+  const loaded = resources.filter(resource =>
+    resource.responseEnd > 0
+  ).length;
+
+  const total = resources.length;
+
+  const resourceProgress = total > 0
+    ? Math.round((loaded / total) * 100)
+    : 0;
+
+  currentProgress = Math.min(resourceProgress, 75);
+
+  percentage.textContent = `${currentProgress}%`;
+  progress.style.width = `${currentProgress}%`;
+
+  if (currentProgress >= 75) {
+    finishLoading();
+  }
+}
+
+function finishLoading() {
+  percentage.textContent = "100%";
+  progress.style.width = "100%";
+
+  setTimeout(() => {
+    preloader.classList.add("hide");
+    document.body.classList.remove("loading");
+  }, 400);
+}
+
+window.addEventListener("load", () => {
+  finishLoading();
+});
+
+const loaderInterval = setInterval(() => {
+  updateLoader();
+
+  if (preloader.classList.contains("hide")) {
+    clearInterval(loaderInterval);
+  }
+}, 200);

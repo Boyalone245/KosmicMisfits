@@ -25,7 +25,17 @@ body::before {
   pointer-events: none;
   z-index: -1;
 }
-
+#preloader{
+  position: fixed;
+  height: 100%;
+  width: 100vw;
+  background-color: rgb(6, 20, 55);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
 .background-layer {
   position: fixed;
   inset: 0;
@@ -39,8 +49,87 @@ body::before {
   transition: opacity 1s ease-in-out;
   pointer-events: none;
 }
+.loader-content {
+  width: min(300px, 80%);
+  text-align: center;
+  color: #DCCBFF;
+  border-radius: 20px;
+  border-color: #e8d0ff;
+  animation: bloat 5s ease-in-out infinite;
+}
+.slide {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  height: 200%;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  transform: rotate(15deg);
+  animation: slide 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes slide {
+  0% {
+    left: -70%;
+  }
 
+  100% {
+    left: 150%;
+  }
+}
+#loadPercentage {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+#loaderProgress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #5427A8,
+    #00D9FF
+  );
+  border-radius: 10px;
+  transition: width 0.2s ease;
+}
+.loader-bar{
+  justify-self: center;
+  height: 30px;
+  width: 40%;
+  background-color: #4209b3;
+  border-radius: 10px;
+}
+.loader-content p {
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 15px;
+}
 
+#preloader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.loading {
+  overflow: hidden;
+}
+body.loading .siteheader {
+  visibility: hidden;
+}
+@keyframes bloat {
+  0%, 100%{
+    transform:  scale(1)
+  }
+  50%{
+    transform:  scale(1.08)
+  }
+}
 
 .siteheader {
   display: flex;
@@ -202,6 +291,7 @@ body::before {
 .mintPanel a {
   color: yellow;
   text-decoration: none;
+
 }
 #mintPanel.active {
   opacity: 1;
